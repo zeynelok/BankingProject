@@ -11,7 +11,6 @@ namespace Core.DataAccess
    public interface IEntityRepository<T> where T:class,IEntity,new()
     {
         List<T> GetAll();    
-        void Add(T entity);
-       
+        void Add(T entity); 
     }
 }

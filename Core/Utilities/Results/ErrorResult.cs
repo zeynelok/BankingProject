@@ -16,8 +16,6 @@ namespace Core.Utilities.Results
             
             Errors = errors;
         }
-       
-
 
     }
 }

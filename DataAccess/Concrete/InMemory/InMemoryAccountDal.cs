@@ -18,7 +18,6 @@ namespace DataAccess.Concrete.InMemory
         {
             _accounts.Add(entity);
         }
-
         public Account Get(int accountNumber)
         {
             return _accounts.FirstOrDefault(x => x.AccountNumber == accountNumber);

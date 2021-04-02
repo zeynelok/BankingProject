@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 namespace DataAccess.Abstract
 {
     public interface IAccountDal:IEntityRepository<Account>
-    {
-      
+    {   
         Account Get(int accountNumber);
-
     }
 }

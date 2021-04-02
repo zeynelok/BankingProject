@@ -24,7 +24,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x => x.Amount).GreaterThan(0);
             RuleFor(x => x.Amount).Must(IsAmountPrecisionLimitedTwo).WithMessage("Küsürat Sadece 2 Haneli Bir Değer Olabilir");
             
-
         }
 
         private bool IsAmountPrecisionLimitedTwo(decimal arg)

@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 namespace Core.Utilities.Results
 {
     public class SuccessResult:ReferancedResult
-    {
-       
-
+    {       
         public SuccessResult(int referanceNumber):base(false, referanceNumber)
         {
           
         }
        
-
-
     }
 }

@@ -15,7 +15,6 @@ namespace Core.Utilities.Results
         public Result(bool isError )
         {
             IsError = isError;
-
         }
        
     }

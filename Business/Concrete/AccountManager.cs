@@ -22,8 +22,6 @@ namespace Business.Concrete
         {
             _accountDal = accountDal;
             _referanceNumber = referanceNumber;
-
-
         }
         public IResult Add(Account account)
         {

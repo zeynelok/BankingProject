@@ -11,3 +11,4 @@ namespace Business.Abstract
         int CreateReferanceNumber();
     }
 }
+

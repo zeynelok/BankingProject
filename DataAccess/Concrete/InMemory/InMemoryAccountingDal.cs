@@ -25,7 +25,6 @@ namespace DataAccess.Concrete.InMemory
         {
             return _accountings;
         }
-
-       
+   
     }
 }

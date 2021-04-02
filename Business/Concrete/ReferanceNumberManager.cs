@@ -11,8 +11,7 @@ namespace Business.Concrete
     {
         private int referanceNumber = 1;
         public int CreateReferanceNumber()
-        {
-           
+        {  
             lock (this)
             {
                 return referanceNumber++;

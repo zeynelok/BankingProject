@@ -14,7 +14,6 @@ namespace Core.Utilities.Results
         public ErrorDataResult(int referanceNumber,string error, T data = null) : base(referanceNumber,true, data)
         {
             Error = error;
-          
 
         }
     }

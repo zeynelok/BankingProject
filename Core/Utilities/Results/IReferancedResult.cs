@@ -11,3 +11,4 @@ namespace Core.Utilities.Results
         int ReferanceNumber { get; }
     }
 }
+

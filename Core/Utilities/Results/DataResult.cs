@@ -15,8 +15,6 @@ namespace Core.Utilities.Results
             Data = data;
             ReferanceNumber = referanceNumber;
         }
-       
-       
-       
+           
     }
 }

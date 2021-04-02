@@ -22,7 +22,6 @@ namespace Business.Concrete
             _accountingDal = accountingDal;
             _accountDal = accountDal;
             _referanceNumber = referanceNumber;
-
         }
         public IResult Add(Accounting accounting)
         {

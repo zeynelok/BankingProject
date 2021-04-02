@@ -23,7 +23,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x => x.CurrencyCode).Must(IsMyCodes).WithMessage("'Currency Code' Yalnızca 'TRY', 'USD', 'EUR'  Birimlerinden Biri Olabilir");
             RuleFor(x => x.Balance).Must(IsBalancePrecisionLimitedTwo).WithMessage("Küsürat Sadece 2 Haneli Bir Değer Olabilir");
         }
-
         private bool IsBalancePrecisionLimitedTwo(decimal arg)
         {
             

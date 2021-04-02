@@ -8,8 +8,6 @@ namespace Core.Utilities.Results
 {
     public interface IResult
     {
-        bool IsError { get; }
-       
-      
+        bool IsError { get; }   
     }
 }
