@@ -8,7 +8,7 @@ namespace Core.Utilities.Results
 {
     public class SuccessDataResult<T>:DataResult<T> where T:class
     {
-        public SuccessDataResult(T data):base(false, data)
+        public SuccessDataResult(int referanceNumber,T data):base(referanceNumber,false, data)
         {
                 
         }

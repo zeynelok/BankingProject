@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Results
 {
-    public class ErrorDataResult<T> : DataResult<T> where T : class
+    public class ErrorDataResult<T> : DataResult<T> where T : class 
     {
 
         public string Error { get; set; }
 
-        public ErrorDataResult(string error, T data = null) : base(true, data)
+        public ErrorDataResult(int referanceNumber,string error, T data = null) : base(referanceNumber,true, data)
         {
             Error = error;
+          
 
         }
     }

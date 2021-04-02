@@ -43,7 +43,7 @@ namespace Business.Concrete
                             _accountingDal.Add(accounting);
                             return new SuccessResult(_referanceNumber.CreateReferanceNumber());
                         }
-                        errorList.Add("Para birimi aynı olmalıdır");
+                        errorList.Add("Gönderici ve Alıcı para birimi kodu aynı olmalıdır");
                     }
                     else
                     {
@@ -67,7 +67,15 @@ namespace Business.Concrete
 
         public IDataResult<List<Accounting>> GetAll()
         {
-            return new SuccessDataResult<List<Accounting>>(_accountingDal.GetAll());
+            //Eğer transfer listesi boşken hata verilmesi istenirse yorum satırları kaldırılmalıdır
+
+            //if (_accountingDal.GetAll().Count==0)
+            //{
+            //    return new ErrorDataResult<List<Accounting>>(_referanceNumber.CreateReferanceNumber(), "Para transferi bulunamadı");
+            //}
+
+
+            return new SuccessDataResult<List<Accounting>>(_referanceNumber.CreateReferanceNumber(),_accountingDal.GetAll());
         }
     }
 }

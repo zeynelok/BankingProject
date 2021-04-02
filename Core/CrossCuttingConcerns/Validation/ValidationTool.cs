@@ -17,10 +17,7 @@ namespace Core.CrossCuttingConcerns.Validation
             
             if (!result.IsValid)
             {
-                
-               
-                return result.Errors.Select(x => x.ErrorMessage).ToList();
-              
+                return result.Errors.Select(x => x.ErrorMessage).ToList(); 
             }
             return null;
         }

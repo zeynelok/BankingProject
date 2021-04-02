@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.InMemory
         List<Account> _accounts;
         public InMemoryAccountDal()
         {
-            _accounts = new List<Account> { /*new Account() { AccountNumber = 1, Balance = 100, CurrencyCode = "TRY" }*/ };
+            _accounts = new List<Account> {  };
         }
         public void Add(Account entity)
         {

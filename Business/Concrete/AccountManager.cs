@@ -1,5 +1,4 @@
 ﻿using Business.Abstract;
-using Business.Contants;
 using Business.ValidationRules.FluentValidation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
@@ -55,14 +54,16 @@ namespace Business.Concrete
         }
         public IDataResult<List<Account>> GetAll()
         {
-            //****Liste boşken hata dönmek istenirse yorum satırları kaldırılabilir
-            //if (!IsAnyAccountExists())
-            //{
 
-            //    return new ErrorDataResult<List<Account>>(_referanceNumber.CreateReferanceNumber(), "Hiç hesap bulunamadı");
+            //**** Eğer hesap listesi boşken hata verilmesi istenilirse yorum satırları kaldırılmalıdır
+
+            //if (_accountDal.GetAll().Count==0)
+            //{
+            //    return new ErrorDataResult<List<Account>>(_referanceNumber.CreateReferanceNumber(), "Hesap Bulunamadı");
             //}
 
-            return new SuccessDataResult<List<Account>>(_accountDal.GetAll());
+            return new SuccessDataResult<List<Account>>(_referanceNumber.CreateReferanceNumber(),_accountDal.GetAll());
+          
         }
 
         private bool IsAccountExists(int accountNumber)
@@ -75,15 +76,6 @@ namespace Business.Concrete
             return true;
         }
 
-        //private bool IsAnyAccountExists()
-        //{
-        //    var isAnyAccountExists = _accountDal.GetAll();
-        //    if (isAnyAccountExists.Count != 0)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
 
 
     }
