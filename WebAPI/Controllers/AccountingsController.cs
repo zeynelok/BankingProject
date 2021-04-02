@@ -19,8 +19,8 @@ namespace WebAPI.Controllers
             _accountingService = accountingService;
         }
 
-        [HttpGet("getall")]
-        public IActionResult GetAll()
+        [HttpGet("getlistofmoneytransactions")]
+        public IActionResult GetListofMoneyTransactions()
         {
             var result = _accountingService.GetAll();
             if (!result.IsError)
@@ -31,8 +31,8 @@ namespace WebAPI.Controllers
 
         }
 
-        [HttpPost("add")]
-        public IActionResult Add(Accounting accounting)
+        [HttpPost("createmoneytransaction")]
+        public IActionResult CreateMoneyTransaction(Accounting accounting)
         {
             var result = _accountingService.Add(accounting);
             if (!result.IsError)

@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     {
       
         Account Get(int accountNumber);
+
     }
 }

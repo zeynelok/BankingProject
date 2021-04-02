@@ -19,8 +19,8 @@ namespace WebAPI.Controllers
             _accountService = accountService;
         }
 
-        [HttpGet("getall")]
-        public IActionResult GetAll()
+        [HttpGet("getlistofaccounts")]
+        public IActionResult GetListofAccounts()
         {
             var result = _accountService.GetAll();
             if (!result.IsError)
@@ -31,8 +31,8 @@ namespace WebAPI.Controllers
            
         }
 
-        [HttpPost("add")]
-        public IActionResult Add(Account account)
+        [HttpPost("createaccount")]
+        public IActionResult CreateAccount(Account account)
         {
             var result = _accountService.Add(account);
             if (!result.IsError)

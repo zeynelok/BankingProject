@@ -28,20 +28,39 @@ namespace Business.Concrete
         {
             var errorList = new List<string>();
             var errors = ValidationTool.Validate(new AccountingValidator(), accounting);
-            if (errors!=null)
+            if (errors==null)
             {
-                return new ErrorResult(_referanceNumber.CreateReferanceNumber(), errors);
+                var sender = _accountDal.Get(accounting.SenderAccountNumber);
+                var receiver = _accountDal.Get(accounting.ReceiverAccountNumber);
+                if (sender != null && receiver != null )
+                {
+                    if (sender.Balance >= accounting.Amount)
+                    {
+                        if (sender.CurrencyCode==receiver.CurrencyCode)
+                        {
+                            sender.Balance = sender.Balance - accounting.Amount;
+                            receiver.Balance = receiver.Balance + accounting.Amount;
+                            _accountingDal.Add(accounting);
+                            return new SuccessResult(_referanceNumber.CreateReferanceNumber());
+                        }
+                        errorList.Add("Para birimi aynı olmalıdır");
+                    }
+                    else
+                    {
+                        errorList.Add("Bakiye Yetersiz");
+                    }
+                    
+                }
+                else
+                {
+                    errorList.Add("Gönderici ya da Alıcı mevcut değil");
+                }
+
             }
-            var sender = _accountDal.Get(accounting.SenderAccountNumber);        
-            var receiver = _accountDal.Get(accounting.ReceiverAccountNumber);
-            if (sender!=null && receiver!=null && sender.Balance>=accounting.Amount)
+            else
             {
-                sender.Balance = sender.Balance - accounting.Amount;
-                receiver.Balance = receiver.Balance + accounting.Amount;
-                _accountingDal.Add(accounting);
-                return new SuccessResult(_referanceNumber.CreateReferanceNumber());
-            }
-            
+                errorList.AddRange(errors);
+            } 
 
             return new ErrorResult(_referanceNumber.CreateReferanceNumber(),errorList);
         }
